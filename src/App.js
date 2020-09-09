@@ -7,6 +7,7 @@ import Checkout from "./Checkout";
 import Login from "./Login";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
+import { ToastProvider } from "react-toast-notifications";
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -36,23 +37,25 @@ function App() {
   console.log(user);
 
   return (
-    <Router>
-      <div className="app">
-        <Switch>
-          <Route path="/checkout">
-            <Header />
-            <Checkout />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Header />
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <ToastProvider>
+      <Router>
+        <div className="app">
+          <Switch>
+            <Route path="/checkout">
+              <Header />
+              <Checkout />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/">
+              <Header />
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </ToastProvider>
   );
 }
 

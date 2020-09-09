@@ -2,9 +2,12 @@ import React from "react";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
 import { Button } from "@material-ui/core";
+import { useToasts } from "react-toast-notifications";
 
 function Product({ id, title, price, rating, image }) {
   const [{}, dispatch] = useStateValue();
+
+  const { addToast } = useToasts();
 
   const addToBasket = () => {
     //Add item to basket
@@ -17,6 +20,11 @@ function Product({ id, title, price, rating, image }) {
         image,
         rating,
       },
+    });
+    addToast("Item added to basket", {
+      appearance: "success",
+      autoDismiss: true,
+      autoDismissTimeout: 1800,
     });
   };
 

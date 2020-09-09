@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
+import { getTotalItems } from "./reducer";
 
 function Header() {
   const [{ basket, user }] = useStateValue();
@@ -59,7 +60,7 @@ function Header() {
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
             <span className="header__optionLineTwo header__basketCount">
-              {basket?.length}
+              {getTotalItems(basket)}
             </span>
           </div>
         </Link>
