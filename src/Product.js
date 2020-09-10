@@ -26,7 +26,7 @@ class Product extends React.Component {
       addToast.addToast(`Item added to basket : ${title}`, {
         appearance: "success",
         autoDismiss: true,
-        autoDismissTimeout: 1800,
+        autoDismissTimeout: 1000,
       });
     };
 

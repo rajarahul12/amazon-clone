@@ -57,7 +57,7 @@ function Header() {
         <Link to={!user && "/login"} className="header__link">
           <div onClick={login} className="header__option">
             <span className="header__optionLineOne">
-              Hello {user?.email ? user?.email : "Guest"}
+              Hello {user?.email ? user?.email.split("@")[0] : "Guest"}
             </span>
             <span className="header__optionLineTwo">
               {user ? "Sign Out" : "Sign In"}
@@ -65,14 +65,14 @@ function Header() {
           </div>
         </Link>
 
-        <Link to="/" className="header__link">
+        <Link to="/" className="header__link header__hide">
           <div className="header__option">
             <span className="header__optionLineOne">Returns</span>
             <span className="header__optionLineTwo">& Orders</span>
           </div>
         </Link>
 
-        <Link className="header__link">
+        <Link className="header__link header__hide">
           <div
             onClick={() => window.open("https://primevideo.com")}
             className="header__option"

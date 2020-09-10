@@ -8,8 +8,10 @@ function SearchProducts(props) {
   const location = useLocation();
   const history = useHistory();
   var products = [];
+
   if (location.data) {
     var searchTerm = location.data.searchTerm;
+
     products = data.filter(({ title }) => {
       return (
         title.includes(searchTerm) ||
@@ -31,7 +33,7 @@ function SearchProducts(props) {
         alignItems: "center",
       }}
     >
-      <h3 style={{ margin: "50px", textAlign: "center" }}>
+      <h3 style={{ margin: "20px", textAlign: "center" }}>
         Found {products.length} results
       </h3>
       {products.length === 0 ? (
@@ -48,7 +50,7 @@ function SearchProducts(props) {
       ) : null}
       <div
         style={{
-          marginTop: "30px",
+          marginTop: "0px",
           width: "50vw",
           display: "flex",
           flexDirection: "column",

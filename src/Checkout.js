@@ -35,7 +35,8 @@ function CheckOut() {
             <FlipMove
               appearAnimation="accordionVertical"
               leaveAnimation="elevator"
-              // staggerDelayBy={150}
+              delay={200}
+              staggerDelayBy={150}
               // enterAnimation={{
               //   from: {
               //     transform: "rotateX(180deg)",

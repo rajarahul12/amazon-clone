@@ -21,18 +21,23 @@ function Home() {
         leaveAnimation="fade"
         leaveAnimation="elevator"
         delay={200}
+        staggerDelayBy={150}
       >
         <div className="home__row">
-          {data.map(({ id, title, price, rating, image }) => (
-            <Product
-              key={id}
-              id={id}
-              title={title}
-              price={price}
-              rating={rating}
-              image={image}
-            />
-          ))}
+          {data.map(({ id, title, price, rating, image }) => {
+            if (id !== "6") {
+              return (
+                <Product
+                  key={id}
+                  id={id}
+                  title={title}
+                  price={price}
+                  rating={rating}
+                  image={image}
+                />
+              );
+            }
+          })}
         </div>
       </FlipMove>
 
