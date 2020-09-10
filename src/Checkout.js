@@ -25,8 +25,8 @@ function CheckOut() {
           <div>
             <h2>Your shopping basket is empty</h2>
             <p>
-              You have no items in your basket. To buy one, click on "Add to
-              Baket" next to the item
+              You have no items in your cat. To buy one, click on "Add to Cart"
+              next to the item
             </p>
           </div>
         ) : (
