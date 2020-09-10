@@ -1,0 +1,31 @@
+[
+  {
+    "id": "1",
+    "title": "Sony WH-1000XM3 Industry Leading Wireless Noise Cancelling Headphones, Bluetooth Headset with Mic for Phone Calls, 30 Hours Battery Life, Quick Charge, Touch Control & Alexa Voice Control – (Black)",
+    "price": 200.96,
+    "rating": 5,
+    "image": "https://images-na.ssl-images-amazon.com/images/I/6125kwHG4gL._SX679_.jpg"
+  },
+
+  {
+    "id": "2",
+    "title": "Logitech MX Master 2S Wireless Mouse, Multi-Device, Bluetooth or 2.4GHz Wireless with USB Unifying Receiver, 4000 DPI Any Surface Tracking, 7 Buttons, Fast Rechargeable, Laptop/PC/Mac/iPad OS - Black",
+    "price": 30,
+    "rating": 4,
+    "image": "https://images-na.ssl-images-amazon.com/images/I/61nlvOcfINL._SX679_.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Apple MacBook Pro (16-inch, 16GB RAM, 512GB Storage, 2.6GHz 9th Gen Intel Core i7) - Space Grey",
+    "price": 2399.99,
+    "rating": 4,
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71L2iBSyyOL._SX679_.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Apple AirPods Pro",
+    "price": 230.45,
+    "rating": 5,
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71zny7BTRlL._SX679_.jpg"
+  }
+]
