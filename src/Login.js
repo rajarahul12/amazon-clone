@@ -3,9 +3,11 @@ import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./firebase";
 import { Button, CircularProgress } from "@material-ui/core";
+import { useToasts } from "react-toast-notifications";
 
 function Login() {
   const history = useHistory();
+  const addToast = useToasts();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showLoader, setShowLoader] = useState(false);
@@ -19,6 +21,11 @@ function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
         //logged in
+        // addToast(`Login successfull for ${email}`, {
+        //   appearance: "success",
+        //   autoDismiss: true,
+        //   autoDismissTimeout: 1800,
+        // });
         setShowLoader(false);
         history.push("/");
       })
@@ -38,6 +45,11 @@ function Login() {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         //logged in
+        // addToast(`Resgistration successfull for ${email}`, {
+        //   appearance: "success",
+        //   autoDismiss: true,
+        //   autoDismissTimeout: 1800,
+        // });
         setLoader(false);
         history.push("/");
       })

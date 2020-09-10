@@ -1,6 +1,5 @@
 import React from "react";
 import "./CheckoutProduct.css";
-import { useStateValue } from "./StateProvider";
 import { Button } from "@material-ui/core";
 import { StateContext } from "./StateProvider";
 

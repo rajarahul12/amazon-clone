@@ -1,17 +1,15 @@
 import React from "react";
 import "./Product.css";
-import { useStateValue } from "./StateProvider";
 import { Button } from "@material-ui/core";
-import { useToasts } from "react-toast-notifications";
 import { StateContext } from "./StateProvider";
+import { withHooksHOC } from "./withHookHoc";
 
-export default class Product extends React.Component {
+class Product extends React.Component {
   static contextType = StateContext;
 
   render() {
     const [{}, dispatch] = this.context;
-
-    const { id, title, price, rating, image } = this.props;
+    const { id, title, price, rating, image, addToast } = this.props;
 
     const addToBasket = () => {
       //Add item to basket
@@ -25,13 +23,12 @@ export default class Product extends React.Component {
           rating,
         },
       });
-      // addToast("Item added to basket", {
-      //   appearance: "success",
-      //   autoDismiss: true,
-      //   autoDismissTimeout: 1800,
-      // });
+      addToast.addToast(`Item added to basket : ${title}`, {
+        appearance: "success",
+        autoDismiss: true,
+        autoDismissTimeout: 1800,
+      });
     };
-    // const addToast = useToasts();
 
     return (
       <div className="product">
@@ -57,3 +54,5 @@ export default class Product extends React.Component {
     );
   }
 }
+
+export default withHooksHOC(Product);
