@@ -19,6 +19,26 @@ export default class CheckoutProduct extends React.Component {
       });
     };
 
+    const handleClick = () => {
+      dispatch({
+        type: "ADD_TO_BASKET",
+        item: {
+          id,
+          title,
+          price,
+          image,
+          rating,
+        },
+      });
+    };
+
+    const handleReduce = () => {
+      dispatch({
+        type: "REDUCE_FROM_BASKET",
+        id: id,
+      });
+    };
+
     return (
       <div className="checkoutProduct">
         <img className="checkoutProduct__image" src={image} alt="Product" />
@@ -38,8 +58,17 @@ export default class CheckoutProduct extends React.Component {
               ))}
           </div>
           <p className="checkoutProduct__price checkoutProduct__quantity">
-            Quantity: {"  "}
-            <strong>{quantity}</strong>
+            Quantity {"  "}
+            <button
+              style={{ marginLeft: "10px", cursor: "pointer" }}
+              onClick={handleReduce}
+            >
+              -
+            </button>
+            <span style={{ padding: "10px", cursor: "pointer" }}>
+              {quantity}
+            </span>
+            <button onClick={handleClick}>+</button>
           </p>
 
           <Button onClick={removeFromBasket} variant="contained">
