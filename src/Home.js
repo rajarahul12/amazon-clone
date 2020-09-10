@@ -20,6 +20,7 @@ function Home() {
         enterAnimation="fade"
         leaveAnimation="fade"
         leaveAnimation="elevator"
+        delay={300}
       >
         <div className="home__row">
           {data.map(({ id, title, price, rating, image }) => (

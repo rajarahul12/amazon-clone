@@ -10,6 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [showLoader, setShowLoader] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [error, setError] = useState("");
 
   const login = (e) => {
     e.preventDefault();
@@ -23,7 +24,10 @@ function Login() {
       })
       .catch((e) => {
         setShowLoader(false);
-        alert(e.message);
+        setError(e.message);
+        setTimeout(() => {
+          setError("");
+        }, 2000);
       });
   };
 
@@ -39,7 +43,10 @@ function Login() {
       })
       .catch((e) => {
         setLoader(false);
-        alert(e.message);
+        setError(e.message);
+        setTimeout(() => {
+          setError("");
+        }, 2000);
       });
   };
 
@@ -66,6 +73,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             type="password"
           />
+          <p className="login_error">{error}</p>
           <Button
             variant="contained"
             onClick={login}
