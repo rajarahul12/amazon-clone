@@ -13,8 +13,6 @@ export default class Product extends React.Component {
 
     const { id, title, price, rating, image } = this.props;
 
-    // const { addToast } = useToasts();
-
     const addToBasket = () => {
       //Add item to basket
       dispatch({
@@ -33,6 +31,7 @@ export default class Product extends React.Component {
       //   autoDismissTimeout: 1800,
       // });
     };
+    // const addToast = useToasts();
 
     return (
       <div className="product">

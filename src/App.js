@@ -8,6 +8,7 @@ import Login from "./Login";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { ToastProvider } from "react-toast-notifications";
+import SearchProducts from "./SearchProducts";
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -47,6 +48,10 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/search">
+              <Header />
+              <SearchProducts />
             </Route>
             <Route path="/">
               <Header />

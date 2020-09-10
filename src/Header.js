@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
@@ -6,13 +6,29 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { getTotalItems } from "./reducer";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 function Header() {
+  const history = useHistory();
   const [{ basket, user }] = useStateValue();
+  const [searchTerm, setSearchTerm] = useState("");
 
   const login = () => {
     if (user) {
       auth.signOut();
+    }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.length === 0) {
+      history.push("/");
+    } else {
+      history.push({
+        pathname: "/search",
+        data: { searchTerm: searchTerm },
+      });
     }
   };
 
@@ -25,10 +41,18 @@ function Header() {
           alt="Amazon"
         />
       </Link>
-      <div className="header__search">
-        <input type="text" className="header__searchInput" />
-        <SearchIcon className="header__searchIcon" />
-      </div>
+      <form className="header__search">
+        <input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          type="text"
+          className="header__searchInput"
+        />
+        <Button onClick={handleSearch} type="submit">
+          <SearchIcon className="header__searchIcon" />
+        </Button>
+      </form>
+
       <div className="header__nav">
         <Link to={!user && "/login"} className="header__link">
           <div onClick={login} className="header__option">

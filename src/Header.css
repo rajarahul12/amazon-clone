@@ -7,6 +7,14 @@
   z-index: 100;
 }
 
+.header__search > button {
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: -14px;
+}
+
 .header__logo {
   width: 100px;
   object-fit: contain;
