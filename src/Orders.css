@@ -6,3 +6,39 @@
 .orders > h1 {
   margin: 30px 0;
 }
+
+.order__signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order__signin > button {
+  background: #f0c14b;
+  border-radius: 2px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  font-weight: bolder;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  width: 300px;
+  cursor: pointer;
+}
+
+.order__signin > button:hover {
+  background-color: #f2b063;
+}
+
+.orders__loader {
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiCircularProgress-root {
+  width: 40px !important;
+  height: 40px !important;
+}

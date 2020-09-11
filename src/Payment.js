@@ -8,6 +8,7 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import axios from "./axios";
 import { db } from "./firebase";
+import { Button, LinearProgress, CircularProgress } from "@material-ui/core";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -70,6 +71,7 @@ function Payment() {
   };
 
   const handleChange = (e) => {
+    console.log(("Onchange  ", e));
     setDisabled(e.empty);
     setError(e.error ? e.error.message : "");
   };
@@ -133,9 +135,21 @@ function Payment() {
                   thousandSeparator={true}
                   prefix={"RS "}
                 />
-                <button disabled={processing || disabled || succeeded}>
-                  <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                </button>
+                <Button
+                  onClick={handleSubmit}
+                  disabled={processing || disabled || succeeded}
+                >
+                  <span>
+                    {processing ? (
+                      <div className="payment__process">
+                        <p>Processing</p>
+                        <CircularProgress />
+                      </div>
+                    ) : (
+                      <p>Buy Now</p>
+                    )}
+                  </span>
+                </Button>
               </div>
               {error ? (
                 <div className="payment__error">{error}</div>

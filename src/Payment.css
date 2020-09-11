@@ -50,6 +50,11 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  cursor: pointer;
+}
+
+.payment__details > form > div > button:hover {
+  background-color: #f2b063;
 }
 
 .StripeElement {
@@ -63,4 +68,13 @@
   padding: 10px;
   min-height: 20px;
   color: red;
+}
+
+.payment__process {
+  display: flex;
+  align-items: center;
+}
+
+.payment__process > p {
+  padding-right: 20px;
 }
