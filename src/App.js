@@ -9,6 +9,14 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { ToastProvider } from "react-toast-notifications";
 import SearchProducts from "./SearchProducts";
+import Payment from "./Payment";
+import Orders from "./Orders";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe(
+  "pk_test_51HPuCnEo7NoTqqusCx3eB7c7qTsapXKw15MshI4XePeBnqOHInBIKiHUtYTVpnwQq53x1jtdUpxDlhGmo7HGVAFl00nRV2jT0Q"
+);
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -35,13 +43,15 @@ function App() {
     };
   }, []);
 
-  console.log(user);
-
   return (
     <ToastProvider>
       <Router>
         <div className="app">
           <Switch>
+            <Route path="/orders">
+              <Header />
+              <Orders />
+            </Route>
             <Route path="/checkout">
               <Header />
               <Checkout />
@@ -52,6 +62,12 @@ function App() {
             <Route path="/search">
               <Header />
               <SearchProducts />
+            </Route>
+            <Route path="/payment">
+              <Header />
+              <Elements stripe={promise}>
+                <Payment />
+              </Elements>
             </Route>
             <Route path="/">
               <Header />

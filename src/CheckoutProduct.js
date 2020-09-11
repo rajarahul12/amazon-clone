@@ -9,7 +9,15 @@ export default class CheckoutProduct extends React.Component {
   render() {
     const [{}, dispatch] = this.context;
 
-    const { id, title, image, price, rating, quantity } = this.props;
+    const {
+      id,
+      title,
+      image,
+      price,
+      rating,
+      quantity,
+      hideButton = false,
+    } = this.props;
 
     const removeFromBasket = () => {
       dispatch({
@@ -45,7 +53,7 @@ export default class CheckoutProduct extends React.Component {
         <div className="checkoutProduct__info">
           <p className="checkoutProduct__title">{title}</p>
           <p className="checkoutProduct__price">
-            <small>$</small>
+            <small>RS </small>
             <strong>{price}</strong>
           </p>
 
@@ -58,21 +66,24 @@ export default class CheckoutProduct extends React.Component {
           </div>
           <p className="checkoutProduct__price checkoutProduct__quantity">
             Quantity {"  "}
-            <button
-              style={{ marginLeft: "10px", cursor: "pointer" }}
-              onClick={handleReduce}
-            >
-              -
-            </button>
+            {!hideButton && (
+              <button
+                style={{ marginLeft: "10px", cursor: "pointer" }}
+                onClick={handleReduce}
+              >
+                -
+              </button>
+            )}
             <span style={{ padding: "10px", cursor: "pointer" }}>
               {quantity}
             </span>
-            <button onClick={handleClick}>+</button>
+            {!hideButton && <button onClick={handleClick}>+</button>}
           </p>
-
-          <Button onClick={removeFromBasket} variant="contained">
-            Remove from cart
-          </Button>
+          {!hideButton && (
+            <Button onClick={removeFromBasket} variant="contained">
+              Remove from cart
+            </Button>
+          )}
         </div>
       </div>
     );

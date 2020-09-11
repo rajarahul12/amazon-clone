@@ -45,7 +45,7 @@ function Home() {
         <Product
           id="6"
           title="Samsung LC49HG90DMUXEN 48.9-inch Ultra Wide Curved Monitor (Black)"
-          price={1699.3}
+          price={100000}
           rating={5}
           image="https://images-na.ssl-images-amazon.com/images/I/81vlA84pg6L._SX679_.jpg"
         />
