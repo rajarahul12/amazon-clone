@@ -14,9 +14,11 @@
     "firebase": "^7.19.1",
     "moment": "^2.27.0",
     "react": "^16.13.1",
+    "react-credit-cards": "^0.8.3",
     "react-currency-format": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.4",
+    "react-payment-card-component": "^0.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-toast-notifications": "^2.4.0"

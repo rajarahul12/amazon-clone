@@ -1,0 +1,111 @@
+.paymentNew {
+  display: flex;
+}
+
+.paymentNew__leftOne {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.paymentNew__leftMap > img {
+  height: 220px;
+}
+
+.paymentNew__left {
+  padding: 60px;
+  height: 100vh;
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.paymentNew__leftDetails {
+  margin-left: 10rem;
+}
+
+.paymentNew__right {
+  flex: 0.5;
+  padding: 60px;
+  /* border: 1px solid red; */
+  max-height: 100vh;
+  background-color: white;
+  overflow: scroll;
+}
+
+.paymentNew__leftDetails {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.paymentNew__leftDetails > div > p {
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+.paymentNew__leftDetails > div > h5 {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.card__details {
+  margin-top: 80px;
+  min-width: 300px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.StripeElement {
+  min-width: 400px;
+}
+
+.payment__details > form > * {
+  margin-top: 50px;
+}
+
+.payment__details > form > .payment__priceContainer > button {
+  background: #f0c14b;
+  border-radius: 2px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  font-weight: bolder;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  cursor: pointer;
+}
+
+.payment__details > form > .payment__priceContainer > button:hover {
+  background-color: #f2b063;
+}
+
+.MuiCircularProgress-root {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+@media (max-width: 800px) {
+  .paymentNew {
+    flex-direction: column;
+  }
+  .paymentNew__leftOne {
+    flex-direction: column;
+  }
+  .paymentNew__leftDetails {
+    margin-left: 0;
+  }
+  .StripeElement {
+    width: 270px;
+    max-width: 270px;
+  }
+  .paymentNew__leftDetails > div > h5 {
+    margin-bottom: 10px;
+  }
+}
