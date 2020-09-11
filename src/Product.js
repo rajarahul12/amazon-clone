@@ -9,7 +9,15 @@ class Product extends React.Component {
 
   render() {
     const [{}, dispatch] = this.context;
-    const { id, title, price, rating, image, addToast } = this.props;
+    const {
+      id,
+      title,
+      price,
+      rating,
+      image,
+      addToast,
+      extraClass,
+    } = this.props;
 
     const addToBasket = () => {
       //Add item to basket
@@ -31,7 +39,7 @@ class Product extends React.Component {
     };
 
     return (
-      <div className="product">
+      <div className={extraClass ? "product product__hoverremove" : "product"}>
         <div className="product__info">
           <p>{title}</p>
           <p className="product__price">

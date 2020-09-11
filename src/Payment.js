@@ -78,7 +78,11 @@ function Payment() {
     <div className="payment">
       <div className="payment__container">
         <h1>
-          Checkout (<Link to="/checkout">{getTotalItems(basket)} items</Link>)
+          Checkout (
+          <Link to="/checkout" style={{ cursor: "pointer" }}>
+            {getTotalItems(basket)} items
+          </Link>
+          )
         </h1>
         {/* Payment Section - delivery address */}
         <div className="payment__section">
@@ -133,7 +137,11 @@ function Payment() {
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
               </div>
-              {error && <div>{error}</div>}
+              {error ? (
+                <div className="payment__error">{error}</div>
+              ) : (
+                <div className="payment__error"></div>
+              )}
             </form>
           </div>
         </div>

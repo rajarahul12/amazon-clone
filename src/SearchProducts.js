@@ -66,6 +66,7 @@ function SearchProducts(props) {
             price={price}
             rating={rating}
             image={image}
+            extraClass={"removeHover"}
           />
         ))}
       </div>

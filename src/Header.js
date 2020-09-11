@@ -43,6 +43,7 @@ function Header() {
       </Link>
       <form className="header__search">
         <input
+          placeholder="Search Items"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           type="text"

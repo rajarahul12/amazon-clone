@@ -1,18 +1,41 @@
 .order {
-  padding: 40px;
+  /* padding: 40px; */
+  padding: 0px;
   margin: 20px 0;
   border: 1px solid lightgray;
   background-color: white;
-  position: relative;
+  /* position: relative; */
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .order__id {
-  position: absolute;
-  top: 40px;
-  right: 20px;
+  /* position: absolute; */
+  /* top: 25px; */
+  /* right: 20px; */
 }
 
 .order__total {
   font-weight: 500;
   text-align: right;
+  padding: 20px;
+}
+
+.order__topdiv {
+  background-color: #f6f6f6;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .order__topdiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .checkoutProduct {
+    flex-direction: column;
+  }
 }
