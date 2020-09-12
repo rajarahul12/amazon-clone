@@ -19,6 +19,7 @@ function PaymentNew() {
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  const [number, setNumber] = useState("xxxx-xxxx-xxxx-xxxx");
 
   const stripe = useStripe();
   const elements = useElements();
@@ -45,6 +46,7 @@ function PaymentNew() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setNumber("xxxx-xxxx-xxxx-4242");
     setProcessing(true);
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
@@ -111,7 +113,7 @@ function PaymentNew() {
             model="personnalite"
             type="black"
             brand="visa"
-            number="xxxx-xxxx-xxxx-xxxx"
+            number={number}
             cvv="202"
             holderName={user?.email.split("@")[0]}
             expiration="12/20"
@@ -120,6 +122,7 @@ function PaymentNew() {
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
+              {/* <h3>Products Count : {getTotalItems(basket)}</h3> */}
               <div className="payment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => <h3>Order Total: {value}</h3>}
@@ -129,6 +132,7 @@ function PaymentNew() {
                   thousandSeparator={true}
                   prefix={"RS "}
                 />
+
                 <Button
                   className="button__submit"
                   onClick={handleSubmit}

@@ -44,6 +44,14 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    var cart = JSON.parse(localStorage.getItem("basket"));
+    dispatch({
+      type: "SET_BASKET",
+      basket: cart.basket,
+    });
+  }, []);
+
   return (
     <ToastProvider>
       <Router>

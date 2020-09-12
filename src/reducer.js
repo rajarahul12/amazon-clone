@@ -1,6 +1,7 @@
 export const initialState = {
   basket: [],
   user: null,
+  products: [],
 };
 
 export const getBasketTotal = (basket) =>
@@ -17,7 +18,20 @@ const reducer = (state, action) => {
         user: action.user,
       };
 
+    case "SET_BASKET":
+      return {
+        ...state,
+        basket: action.basket,
+      };
+
+    case "SET_PRODUCTS":
+      return {
+        ...state,
+        products: action.products,
+      };
+
     case "EMPTY_BASKET":
+      localStorage.setItem("basket", JSON.stringify({ basket: [] }));
       return {
         ...state,
         basket: [],
@@ -34,6 +48,7 @@ const reducer = (state, action) => {
             basket[i].quantity += 1;
           }
         }
+        localStorage.setItem("basket", JSON.stringify({ basket: basket }));
 
         return {
           ...state,
@@ -42,6 +57,10 @@ const reducer = (state, action) => {
       } else {
         var item = action.item;
         item.quantity = 1;
+        localStorage.setItem(
+          "basket",
+          JSON.stringify({ basket: [...state.basket, item] })
+        );
         return {
           ...state,
           basket: [...state.basket, item],
@@ -69,6 +88,7 @@ const reducer = (state, action) => {
           `Can't remove the product (id: ${action.id}) as it is not in basket`
         );
       }
+      localStorage.setItem("basket", JSON.stringify({ basket: reducedBasket }));
       return { ...state, basket: reducedBasket };
 
     case "REMOVE_FROM_BASKET":
@@ -86,6 +106,7 @@ const reducer = (state, action) => {
           `Can't remove the product (id: ${action.id}) as it is not in basket`
         );
       }
+      localStorage.setItem("basket", JSON.stringify({ basket: newBasket }));
       return { ...state, basket: newBasket };
     default:
       return state;

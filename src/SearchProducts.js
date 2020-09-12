@@ -3,16 +3,20 @@ import data from "./products.json";
 import Product from "./Product";
 import { useLocation, useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
+import { useStateValue } from "./StateProvider";
 
 function SearchProducts(props) {
   const location = useLocation();
   const history = useHistory();
-  var products = [];
+
+  const [{ products }, dispatch] = useStateValue();
+
+  var searchProducts = [];
 
   if (location.data) {
     var searchTerm = location.data.searchTerm;
 
-    products = data.filter(({ title }) => {
+    searchProducts = products.filter(({ title }) => {
       return (
         title.includes(searchTerm) ||
         title.includes(searchTerm?.toLowerCase()) ||
@@ -34,9 +38,9 @@ function SearchProducts(props) {
       }}
     >
       <h3 style={{ margin: "20px", textAlign: "center" }}>
-        Found {products.length} results
+        Found {searchProducts.length} results
       </h3>
-      {products.length === 0 ? (
+      {searchProducts.length === 0 ? (
         <Button
           style={{
             backgroundColor: "#f0c14b",
@@ -58,7 +62,7 @@ function SearchProducts(props) {
           justifyContent: "center",
         }}
       >
-        {products.map(({ id, title, price, rating, image }) => (
+        {searchProducts.map(({ id, title, price, rating, image }) => (
           <Product
             key={id}
             id={id}
