@@ -45,11 +45,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    var cart = JSON.parse(localStorage.getItem("basket"));
-    dispatch({
-      type: "SET_BASKET",
-      basket: cart.basket,
-    });
+    if (localStorage.getItem("basket")) {
+      var cart = JSON.parse(localStorage.getItem("basket"));
+      dispatch({
+        type: "SET_BASKET",
+        basket: cart.basket,
+      });
+    }
   }, []);
 
   return (
